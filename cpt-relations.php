@@ -16,6 +16,7 @@ namespace cpt\rel;
 
 use cpt\rel\includes\Plugin;
 use cpt\rel\includes\Submenu;
+use cpt\rel\includes\BuildCPT;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -40,6 +41,7 @@ final class Loader{
 		include_once ( CPT_REL_PATH . '/helpers/functions.php');
 		include_once ( CPT_REL_PATH . '/includes/plugin.php');
 		include_once ( CPT_REL_PATH . '/includes/submenu.php');
+		include_once ( CPT_REL_PATH . '/includes/build-cpt.php');
 	}
 
 	// Load tex domain
@@ -67,6 +69,7 @@ final class Loader{
 		$this->add_link_plugin();
 		new Plugin;
 		new SubMenu;
+		new BuildCPT;
 	}
 
 }

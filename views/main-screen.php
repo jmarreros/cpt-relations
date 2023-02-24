@@ -1,3 +1,3 @@
 <div class="wrap">
 
-<h1><?php _e('xxxx yyyy', 'dcms-xxxx-yyyy') ?></h1>
+<h1><?php _e('CPT Relations', 'cpt-relations') ?></h1>
