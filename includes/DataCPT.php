@@ -5,6 +5,8 @@
 
 namespace cpt\rel\includes;
 
+use WP_Query;
+
 class  DataCPT {
 
 	// Get team players
@@ -43,16 +45,42 @@ class  DataCPT {
 		return $coaches;
 	}
 
-
 	// Get featured image or ACF with image
-	private function get_image_cpt( $id, $field_name, $size = 'thumbnail' ): string {
-		$thumbnail = get_the_post_thumbnail( $id, $size );
+	private function get_image_cpt( $id, $field_name ): string {
+		$thumbnail = get_the_post_thumbnail( $id, 'thumbnail' );
 
 		if ( ! $thumbnail ) {
 			$id_value  = get_field( $field_name, $id );
-			$thumbnail = wp_get_attachment_image( intval( $id_value ), $size );
+			$thumbnail = wp_get_attachment_image( intval( $id_value ) );
 		}
 
 		return $thumbnail;
+	}
+
+	// Get teams specific category id
+	public function get_teams_specific_category( $id_category ) :array{
+		$args = array(
+			'post_type' => 'equipo',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'term_id',
+					'terms'    => $id_category,
+				),
+			),
+		);
+		$query = new WP_Query( $args );
+
+		error_log(print_r($query,true));
+		$teams = [];
+		foreach ($query->posts as $team){
+			$teams[$team->ID] = [
+				'name' => $team->post_title,
+				'url'   => get_permalink( $team->ID ),
+				'image' => get_the_post_thumbnail( $team->ID, 'thumbnail' )
+			];
+		}
+
+		return $teams;
 	}
 }

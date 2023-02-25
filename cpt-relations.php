@@ -39,6 +39,7 @@ final class Loader {
 		// Shortcodes
 		define( 'CPT_REL_SHORT_TEAM_PLAYERS'  , 'equipo_jugadores' );
 		define( 'CPT_REL_SHORT_TEAM_COACH'  , 'equipo_tecnicos' );
+		define( 'CPT_REL_SHORT_LIST_TEAMS'  , 'equipos' );
 
 	}
 

@@ -36,7 +36,7 @@ class BuildCPT {
 		add_action( 'init', [ $this, 'add_custom_post_types' ] );
 
 		// Restrict Gutenberg CPT
-		add_filter( 'use_block_editor_for_post_type', [ $this, 'disable_gutenberg_editor_cpt' ] , 10, 2);
+		add_filter( 'use_block_editor_for_post_type', [ $this, 'disable_gutenberg_editor_cpt' ], 10, 2 );
 
 	}
 
@@ -107,12 +107,13 @@ class BuildCPT {
 
 	// Disable Gutenberg for certain CPT
 	public function disable_gutenberg_editor_cpt( $use_block_editor, $post_type ) {
-		$post_types = array_map( 'sanitize_title', array_keys( $this->types ) );;
+		$post_types = array_map( 'sanitize_title', array_keys( $this->types ) );
 		if ( in_array( $post_type, $post_types ) ) {
 			return false;
 		}
 
 		return $use_block_editor;
 	}
+
 
 }

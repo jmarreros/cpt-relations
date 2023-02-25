@@ -12,6 +12,29 @@
     margin-bottom: 4px;
 }
 
+
+.list-teams{
+    list-style: none;
+}
+
+.list-teams li {
+    margin-bottom: 20px
+}
+
+.list-teams li .team-image{
+    margin-right: 20px
+}
+
+.list-teams li  > div{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.list-teams li img{
+    width: 100px;
+    height: 100px;
+}
+
 @media (max-width: 768px) {
     .list-team-coaches,
     .list-team-players {
@@ -25,3 +48,8 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
