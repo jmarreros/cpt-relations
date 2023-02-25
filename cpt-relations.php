@@ -49,6 +49,7 @@ final class Loader {
 		include_once( CPT_REL_PATH . '/includes/BuildCPT.php' );
 		include_once( CPT_REL_PATH . '/includes/Enqueue.php' );
 		include_once( CPT_REL_PATH . '/includes/Shortcode.php' );
+		include_once( CPT_REL_PATH . '/includes/DataCPT.php' );
 	}
 
 	// Load tex domain

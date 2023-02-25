@@ -1,0 +1,27 @@
+.list-team-coaches,
+.list-team-players {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    list-style: none;
+    gap: 16px;
+}
+
+.list-team-coaches .coach-image,
+.list-team-players .player-image {
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .list-team-coaches,
+    .list-team-players {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .list-team-coaches,
+    .list-team-players {
+        grid-template-columns: 1fr;
+    }
+}
