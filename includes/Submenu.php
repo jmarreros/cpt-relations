@@ -25,6 +25,6 @@ class Submenu{
 
     // Callback, show view
     public function submenu_page_callback(){
-        include_once (CPT_REL_PATH. '/views/main-screen.php');
+        include_once (CPT_REL_PATH. '/views/backend/main-screen.php');
     }
 }

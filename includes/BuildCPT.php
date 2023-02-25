@@ -81,7 +81,7 @@ class BuildCPT {
 				'label'               => __( ucfirst( $type ), 'cpt-relations' ),
 				'description'         => __( 'Contenido de ' . $data['plural'], 'cpt-relations' ),
 				'labels'              => $labels,
-				'supports'            => array( 'title', 'editor' ),
+				'supports'            => array( 'title', 'editor', 'thumbnail' ),
 				'taxonomies'          => $data['taxonomies'] ?? [],
 				'hierarchical'        => false,
 				'public'              => true,
