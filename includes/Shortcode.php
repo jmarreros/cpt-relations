@@ -17,6 +17,7 @@ class Shortcode {
 		add_shortcode( CPT_REL_SHORT_TEAM_PLAYERS, [ $this, 'show_team_players' ] );
 		add_shortcode( CPT_REL_SHORT_TEAM_COACH, [ $this, 'show_team_coaches' ] );
 		add_shortcode( CPT_REL_SHORT_LIST_TEAMS, [ $this, 'show_teams' ] );
+//		add_shortcode( CPT_REL_TEAMS_PLAYER, [ $this, 'show_teams_player' ] );
 	}
 
 	// Show list team players
@@ -46,7 +47,7 @@ class Shortcode {
 	// Show teams with atts category
 	public function show_teams( $atts, $content ) {
 		$category = intval( $atts['cat'] ?? 0 );
-		$teams = ( new DataCPT )->get_teams_specific_category( $category );
+		$teams    = ( new DataCPT )->get_teams_specific_category( $category );
 
 		ob_start();
 		include_once CPT_REL_PATH . '/views/frontend/list-teams.php';
@@ -56,4 +57,8 @@ class Shortcode {
 		return $html_code;
 	}
 
+//	// Teams by player
+//	public function show_teams_player(){
+//
+//	}
 }

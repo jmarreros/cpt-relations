@@ -58,9 +58,10 @@ class  DataCPT {
 	}
 
 	// Get teams specific category id
-	public function get_teams_specific_category( $id_category ) :array{
-		$args = array(
+	public function get_teams_specific_category( $id_category ): array {
+		$args  = array(
 			'post_type' => 'equipo',
+			'post_status' => 'publish',
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'category',
@@ -71,11 +72,10 @@ class  DataCPT {
 		);
 		$query = new WP_Query( $args );
 
-		error_log(print_r($query,true));
 		$teams = [];
-		foreach ($query->posts as $team){
-			$teams[$team->ID] = [
-				'name' => $team->post_title,
+		foreach ( $query->posts as $team ) {
+			$teams[ $team->ID ] = [
+				'name'  => $team->post_title,
 				'url'   => get_permalink( $team->ID ),
 				'image' => get_the_post_thumbnail( $team->ID, 'thumbnail' )
 			];
@@ -83,4 +83,11 @@ class  DataCPT {
 
 		return $teams;
 	}
+
+
+	// Get team specific user ID
+//	public function get_teams_specific_user(){
+//
+//	}
+
 }

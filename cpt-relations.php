@@ -18,6 +18,8 @@ use cpt\rel\includes\Submenu;
 use cpt\rel\includes\BuildCPT;
 use cpt\rel\includes\Enqueue;
 use cpt\rel\includes\Shortcode;
+use cpt\rel\includes\Relations;
+
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -40,6 +42,7 @@ final class Loader {
 		define( 'CPT_REL_SHORT_TEAM_PLAYERS'  , 'equipo_jugadores' );
 		define( 'CPT_REL_SHORT_TEAM_COACH'  , 'equipo_tecnicos' );
 		define( 'CPT_REL_SHORT_LIST_TEAMS'  , 'equipos' );
+		define( 'CPT_REL_TEAMS_PLAYER'  , 'equipos_jugador' );
 
 	}
 
@@ -51,6 +54,7 @@ final class Loader {
 		include_once( CPT_REL_PATH . '/includes/Enqueue.php' );
 		include_once( CPT_REL_PATH . '/includes/Shortcode.php' );
 		include_once( CPT_REL_PATH . '/includes/DataCPT.php' );
+		include_once( CPT_REL_PATH . '/includes/Relations.php' );
 	}
 
 	// Load tex domain
@@ -80,6 +84,7 @@ final class Loader {
 		new BuildCPT;
 		new Enqueue;
 		new Shortcode;
+		new Relations;
 	}
 
 }
