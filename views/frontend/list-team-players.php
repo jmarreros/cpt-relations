@@ -2,10 +2,10 @@
 /** @var array $players */
 
 $positions = [
-	'delantero',
-	'centrocampista',
+	'portero',
 	'defensa',
-	'portero'
+	'centrocampista',
+	'delantero',
 ];
 ?>
 

@@ -42,8 +42,7 @@ final class Loader {
 		define( 'CPT_REL_SHORT_TEAM_PLAYERS'  , 'equipo_jugadores' );
 		define( 'CPT_REL_SHORT_TEAM_COACH'  , 'equipo_tecnicos' );
 		define( 'CPT_REL_SHORT_LIST_TEAMS'  , 'equipos' );
-		define( 'CPT_REL_TEAMS_PLAYER'  , 'equipos_jugador' );
-
+		define( 'CPT_REL_PLAYER_TEAMS'  , 'jugador_equipos' );
 	}
 
 	// Load all the files we need

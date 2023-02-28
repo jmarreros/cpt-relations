@@ -13,7 +13,7 @@ class  DataCPT {
 	public function get_team_players( $id_team ): array {
 		global $post;
 
-		$id_team = $id_team ? $id_team : $post->ID;
+		$id_team = $id_team ?: $post->ID;
 		$items   = get_field( 'jugadores', $id_team );
 
 		$players = [];
@@ -89,9 +89,23 @@ class  DataCPT {
 	}
 
 
-	// Get team specific user ID
-//	public function get_teams_specific_user(){
-//
-//	}
+	// Get team specific user ID, team is a field of player
+	public function get_teams_specific_user( $id_user ): array {
+		global $post;
+		$id_user = $id_user ?: $post->ID;
+
+		$items = get_field( 'equipos', $id_user );
+
+		$teams = [];
+		foreach ( $items as $team ) {
+			$teams[ $team->ID ] = [
+				'name'  => $team->post_title,
+				'url'   => get_permalink( $team->ID ),
+				'image' => get_the_post_thumbnail( $team->ID, 'thumbnail' )
+			];
+		}
+
+		return $teams;
+	}
 
 }

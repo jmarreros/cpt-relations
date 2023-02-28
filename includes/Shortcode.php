@@ -17,7 +17,7 @@ class Shortcode {
 		add_shortcode( CPT_REL_SHORT_TEAM_PLAYERS, [ $this, 'show_team_players' ] );
 		add_shortcode( CPT_REL_SHORT_TEAM_COACH, [ $this, 'show_team_coaches' ] );
 		add_shortcode( CPT_REL_SHORT_LIST_TEAMS, [ $this, 'show_teams' ] );
-//		add_shortcode( CPT_REL_TEAMS_PLAYER, [ $this, 'show_teams_player' ] );
+		add_shortcode( CPT_REL_PLAYER_TEAMS, [ $this, 'show_player_teams' ] );
 	}
 
 	// Show list team players
@@ -59,8 +59,17 @@ class Shortcode {
 		return $html_code;
 	}
 
-//	// Teams by player
-//	public function show_teams_player(){
-//
-//	}
+	// Show teams by specific player
+	public function show_player_teams($atts, $content){
+		$id_player = intval( $atts['jugador'] ?? 0 );
+		$teams    = ( new DataCPT )->get_teams_specific_user( $id_player );
+
+		ob_start();
+		include_once CPT_REL_PATH . '/views/frontend/list-player-teams.php';
+		$html_code = ob_get_contents();
+		ob_end_clean();
+
+		return $html_code;
+	}
+
 }
