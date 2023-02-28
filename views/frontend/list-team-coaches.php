@@ -1,4 +1,4 @@
-<ul class="list-team-coaches">
+<section class="list-team-coaches">
 	<?php
 	/** @var array $coaches */
 	foreach ( $coaches as $coach ): ?>
@@ -15,4 +15,4 @@
             </span>
         </li>
 	<?php endforeach; ?>
-</ul>
+</section>

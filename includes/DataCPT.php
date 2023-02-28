@@ -18,9 +18,11 @@ class  DataCPT {
 
 		foreach ( $items as $item ) {
 			$players[ $item->ID ] = [
-				'name'  => $item->post_title,
-				'url'   => get_permalink( $item->ID ),
-				'image' => $this->get_image_cpt( $item->ID, 'wpcf-foto' )
+				'name'     => $item->post_title,
+				'position' => get_field( 'wpcf-posicion', $item->ID ),
+				'number'   => get_field( 'numero', $item->ID ),
+				'url'      => get_permalink( $item->ID ),
+				'image'    => $this->get_image_cpt( $item->ID, 'wpcf-foto' )
 			];
 		}
 
@@ -47,7 +49,7 @@ class  DataCPT {
 
 	// Get featured image or ACF with image
 	private function get_image_cpt( $id, $field_name ): string {
-		$thumbnail = get_the_post_thumbnail( $id, 'thumbnail' );
+		$thumbnail = get_the_post_thumbnail( $id, 'medium' );
 
 		if ( ! $thumbnail ) {
 			$id_value  = get_field( $field_name, $id );
@@ -60,9 +62,9 @@ class  DataCPT {
 	// Get teams specific category id
 	public function get_teams_specific_category( $id_category ): array {
 		$args  = array(
-			'post_type' => 'equipo',
+			'post_type'   => 'equipo',
 			'post_status' => 'publish',
-			'tax_query' => array(
+			'tax_query'   => array(
 				array(
 					'taxonomy' => 'category',
 					'field'    => 'term_id',

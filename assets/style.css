@@ -1,54 +1,90 @@
-.list-team-coaches,
-.list-team-players {
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8.5rem;
+}
+
+.players-container .list-positions {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    max-width: 500px;
+    margin: auto;
+    padding: 0;
+}
+
+.players-container .list-positions li a {
+    font-size: 15px;
+    background-color: #eee;
     text-align: center;
+    padding: 10px;
+    display: block;
+}
+
+.players-container ul {
     list-style: none;
-    gap: 16px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns:repeat(4, 1fr);
 }
 
-.list-team-coaches .coach-image,
-.list-team-players .player-image {
-    margin-bottom: 4px;
+.players-container .player-image img {
+    width: 100%;
 }
 
-
-.list-teams{
-    list-style: none;
+.players-container .player {
+    position: relative;
 }
 
-.list-teams li {
-    margin-bottom: 20px
+.players-container .player-position {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
-.list-teams li .team-image{
-    margin-right: 20px
+.player-name a {
+    color: white !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(44, 44, 44, 0.59) 72%, rgba(73, 73, 73, 0) 100%);
 }
 
-.list-teams li  > div{
-    display: inline-block;
-    vertical-align: middle;
+.players-container .player .player-name a {
+    transition: padding .3s ease-out;
 }
 
-.list-teams li img{
-    width: 100px;
-    height: 100px;
+.players-container .player:hover .player-name a {
+    padding-bottom: 1.8rem;
+}
+
+.players-container .title-position {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    padding-top: 40px;
+    padding-bottom: 15px
+}
+
+@media (max-width: 980px) {
+    .players-container .players {
+        grid-template-columns:repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .list-team-coaches,
-    .list-team-players {
-        grid-template-columns: repeat(2, 1fr);
+    .players-container .players,
+    .players-container .list-positions {
+        grid-template-columns:repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .list-team-coaches,
-    .list-team-players {
-        grid-template-columns: 1fr;
+    .players-container .players,
+    .players-container .list-positions {
+        grid-template-columns:1fr;
     }
 }
-
 
 
 
