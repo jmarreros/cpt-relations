@@ -31,6 +31,14 @@
                 [<?= CPT_REL_SHORT_TEAM_PLAYERS ?>]
             </strong>
         </p>
+        <p>➜
+		    <?= __('List Team players in any page', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_SHORT_TEAM_PLAYERS ?> equipo=XX]
+            </strong>
+            <br>
+            <i><?= __('Where id is the cpt equipo id', 'cpt-relations'); ?></i>
+        </p>
 
         <p>➜
 		    <?= __('List Team coaches', 'cpt-relations'); ?> :

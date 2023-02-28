@@ -22,7 +22,9 @@ class Shortcode {
 
 	// Show list team players
 	public function show_team_players( $atts, $content ) {
-		$players = ( new DataCPT )->get_team_players();
+		$id_team = intval( $atts['equipo'] ?? 0 );
+
+		$players = ( new DataCPT )->get_team_players( $id_team );
 
 		ob_start();
 		include_once CPT_REL_PATH . '/views/frontend/list-team-players.php';

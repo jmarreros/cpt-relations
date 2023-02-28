@@ -10,9 +10,11 @@ use WP_Query;
 class  DataCPT {
 
 	// Get team players
-	public function get_team_players(): array {
+	public function get_team_players( $id_team ): array {
 		global $post;
-		$items = get_field( 'jugadores', $post->ID );
+
+		$id_team = $id_team ? $id_team : $post->ID;
+		$items   = get_field( 'jugadores', $id_team );
 
 		$players = [];
 
