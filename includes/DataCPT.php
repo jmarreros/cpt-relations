@@ -108,4 +108,23 @@ class  DataCPT {
 		return $teams;
 	}
 
+	// Get team specific coach ID, team is a field of coach
+	public function get_teams_specific_coach( $id_coach ): array {
+		global $post;
+		$id_coach = $id_coach ?: $post->ID;
+
+		$items = get_field( 'equipos-tecnico', $id_coach );
+
+		$teams = [];
+		foreach ( $items as $team ) {
+			$teams[ $team->ID ] = [
+				'name'  => $team->post_title,
+				'url'   => get_permalink( $team->ID ),
+				'image' => get_the_post_thumbnail( $team->ID, 'thumbnail' )
+			];
+		}
+
+		return $teams;
+	}
+
 }

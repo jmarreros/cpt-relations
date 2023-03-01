@@ -66,3 +66,22 @@
             <i><?= __('Where id is the player id', 'cpt-relations'); ?></i>
         </p>
     </section>
+
+    <section>
+        <h3><?= __('For list teams specif coach', 'cpt-relations'); ?> </h3>
+        <hr>
+        <p>➜
+			<?= __('List coach teams', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_COACH_TEAMS ?>]
+            </strong>
+        </p>
+        <p>➜
+			<?= __('List coach teams specific in any page', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_COACH_TEAMS ?> tecnico=XX]
+            </strong>
+            <br>
+            <i><?= __('Where id is the coach id', 'cpt-relations'); ?></i>
+        </p>
+    </section>

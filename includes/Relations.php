@@ -35,7 +35,6 @@ class Relations {
 		return $this->update_elements_cpt( $teams, 'equipos-tecnico', $coach_id, 'tecnicos' );
 	}
 
-
 	// Generic update elementes cpt acf relation field
 	private function update_elements_cpt( $elements, $field_name, $cpt_id, $field_name_rel ) {
 		$global_name = 'is_updating_' . $field_name;
