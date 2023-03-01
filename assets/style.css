@@ -5,6 +5,9 @@ html {
 
 .players-container .list-positions {
     display: grid;
+    gap: 5px;
+    grid-template-columns:repeat(4, 1fr);
+    list-style: none;
     max-width: 500px;
     margin: auto;
     padding: 0;
@@ -18,13 +21,21 @@ html {
     display: block;
 }
 
-.coaches-container ul,
-.players-container ul {
+.coaches-container .coaches,
+.players-container .players {
     list-style: none;
-    display: grid;
-    gap: 5px;
-    grid-template-columns:repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
 }
+
+.coaches-container .coaches li,
+.players-container .players li {
+    width: 24%;
+    margin: 5px;
+}
+
 
 .coaches-container .coach-image img,
 .players-container .player-image img {
@@ -73,23 +84,37 @@ html {
     padding-bottom: 15px
 }
 
-@media (max-width: 980px) {
-    .players-container .players {
-        grid-template-columns:repeat(3, 1fr);
+@media (max-width: 1120px) {
+    .coaches-container .coaches li,
+    .players-container .players li {
+        width: 32%;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 850px) {
+    .coaches-container .coaches li,
+    .players-container .players li {
+        width: 48%;
+        margin: 5px;
     }
 }
 
 @media (max-width: 768px) {
-    .coaches-container .coaches,
-    .players-container .players,
     .players-container .list-positions {
         grid-template-columns:repeat(2, 1fr);
     }
 }
 
+@media (max-width: 598px) {
+    .coaches-container .coaches li,
+    .players-container .players li {
+        width: 100%;
+        margin: 10px;
+    }
+}
+
 @media (max-width: 480px) {
-    .coaches-container .coaches,
-    .players-container .players,
     .players-container .list-positions {
         grid-template-columns:1fr;
     }
