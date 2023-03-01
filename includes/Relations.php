@@ -10,6 +10,9 @@ class Relations {
 	public function __construct() {
 		add_filter( 'acf/update_value/name=jugadores', [ $this, 'update_players_team' ], 10, 2 );
 		add_filter( 'acf/update_value/name=equipos', [ $this, 'update_teams_player' ], 10, 2 );
+
+		add_filter( 'acf/update_value/name=tecnicos', [ $this, 'update_coaches_team' ], 10, 2 );
+		add_filter( 'acf/update_value/name=equipos-tecnico', [ $this, 'update_teams_coach' ], 10, 2 );
 	}
 
 	// Update players for a specific team
@@ -21,6 +24,17 @@ class Relations {
 	public function update_teams_player( $teams, $player_id ) {
 		return $this->update_elements_cpt( $teams, 'equipos', $player_id, 'jugadores' );
 	}
+
+	// Update coaches for a specific team
+	public function update_coaches_team( $coaches, $team_id ) {
+		return $this->update_elements_cpt( $coaches, 'tecnicos', $team_id, 'equipos-tecnico' );
+	}
+
+	// Update teams for a specific coach
+	public function update_teams_coach($teams, $coach_id){
+		return $this->update_elements_cpt( $teams, 'equipos-tecnico', $coach_id, 'tecnicos' );
+	}
+
 
 	// Generic update elementes cpt acf relation field
 	private function update_elements_cpt( $elements, $field_name, $cpt_id, $field_name_rel ) {
