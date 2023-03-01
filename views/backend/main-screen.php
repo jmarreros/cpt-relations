@@ -47,3 +47,22 @@
             </strong>
         </p>
     </section>
+
+    <section>
+        <h3><?= __('For list teams specif player', 'cpt-relations'); ?> </h3>
+        <hr>
+        <p>➜
+		    <?= __('List player teams', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_PLAYER_TEAMS ?>]
+            </strong>
+        </p>
+        <p>➜
+			<?= __('List player teams specific in any page', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_PLAYER_TEAMS ?> jugador=XX]
+            </strong>
+            <br>
+            <i><?= __('Where id is the player id', 'cpt-relations'); ?></i>
+        </p>
+    </section>
