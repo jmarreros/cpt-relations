@@ -17,8 +17,9 @@ class Shortcode {
 		add_shortcode( CPT_REL_SHORT_TEAM_PLAYERS, [ $this, 'show_team_players' ] );
 		add_shortcode( CPT_REL_SHORT_TEAM_COACH, [ $this, 'show_team_coaches' ] );
 		add_shortcode( CPT_REL_SHORT_LIST_TEAMS, [ $this, 'show_teams' ] );
-		add_shortcode( CPT_REL_PLAYER_TEAMS, [ $this, 'show_player_teams' ] );
-		add_shortcode( CPT_REL_COACH_TEAMS, [ $this, 'show_coach_teams' ] );
+		add_shortcode( CPT_REL_SHORT_PLAYER_TEAMS, [ $this, 'show_player_teams' ] );
+		add_shortcode( CPT_REL_SHORT_COACH_TEAMS, [ $this, 'show_coach_teams' ] );
+		add_shortcode( CPT_REL_SHORT_RESULTS, [ $this, 'show_results' ] );
 	}
 
 	// Show list team players
@@ -85,4 +86,21 @@ class Shortcode {
 
 		return $html_code;
 	}
+
+	// Show results matches
+	public function show_results() {
+		$data = ( new DataCPT )->get_match_results();
+
+		$results    = $data['results'];
+		$pagination = $data['pagination'];
+
+		ob_start();
+		include_once CPT_REL_PATH . '/views/frontend/list-results.php';
+		$html_code = ob_get_contents();
+		ob_end_clean();
+
+		return $html_code;
+	}
+
+
 }

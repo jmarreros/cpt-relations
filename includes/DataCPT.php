@@ -127,4 +127,43 @@ class  DataCPT {
 		return $teams;
 	}
 
+	// Get match results with pagination
+	public function get_match_results(): array {
+
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+		$args  = array(
+			'posts_per_page' => 10,
+			'paged'          => $paged,
+			'post_type'      => 'resultado',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		);
+
+		$items = new WP_Query( $args );
+
+		$results = [];
+		foreach ( $items->posts as $item ) {
+			$results[ $item->ID ] = [
+				'name'  => $item->post_title,
+				'url'   => get_permalink( $item->ID ),
+				'image' => get_the_post_thumbnail( $item->ID, 'thumbnail' ),
+				'score-local'
+			];
+		}
+
+		$pagination = paginate_links(
+			array(
+				'current' => max( 1, get_query_var( 'paged' ) ),
+				'total'   => $items->max_num_pages
+			)
+		);
+
+		wp_reset_query();
+
+		$data['results']    = $results;
+		$data['pagination'] = $pagination;
+
+		return $data;
+	}
+
 }

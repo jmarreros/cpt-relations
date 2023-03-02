@@ -54,13 +54,13 @@
         <p>➜
 		    <?= __('List player teams', 'cpt-relations'); ?> :
             <strong>
-                [<?= CPT_REL_PLAYER_TEAMS ?>]
+                [<?= CPT_REL_SHORT_PLAYER_TEAMS ?>]
             </strong>
         </p>
         <p>➜
 			<?= __('List player teams specific in any page', 'cpt-relations'); ?> :
             <strong>
-                [<?= CPT_REL_PLAYER_TEAMS ?> jugador=XX]
+                [<?= CPT_REL_SHORT_PLAYER_TEAMS ?> jugador=XX]
             </strong>
             <br>
             <i><?= __('Where id is the player id', 'cpt-relations'); ?></i>
@@ -73,13 +73,13 @@
         <p>➜
 			<?= __('List coach teams', 'cpt-relations'); ?> :
             <strong>
-                [<?= CPT_REL_COACH_TEAMS ?>]
+                [<?= CPT_REL_SHORT_COACH_TEAMS ?>]
             </strong>
         </p>
         <p>➜
 			<?= __('List coach teams specific in any page', 'cpt-relations'); ?> :
             <strong>
-                [<?= CPT_REL_COACH_TEAMS ?> tecnico=XX]
+                [<?= CPT_REL_SHORT_COACH_TEAMS ?> tecnico=XX]
             </strong>
             <br>
             <i><?= __('Where id is the coach id', 'cpt-relations'); ?></i>
