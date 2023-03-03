@@ -23,8 +23,9 @@ class BuildCPT {
 				"taxonomies" => [ 'category' ]
 			],
 			"resultado" => [
-				"plural"      => "resultados",
-				"icon"        => "dashicons-calendar-alt",
+				"plural" => "resultados",
+				"icon"   => "dashicons-calendar-alt",
+				"slug"   => 'resultado', // avoid conflict with page "resultados"
 			],
 			"técnico"   => [
 				"plural" => "técnicos",
@@ -71,7 +72,7 @@ class BuildCPT {
 			);
 
 			$rewrite = array(
-				'slug'       => sanitize_title( $type ),
+				'slug'       => $data['slug'] ?? sanitize_title( $data['plural'] ),
 				'with_front' => true,
 				'pages'      => true,
 				'feeds'      => true,

@@ -132,7 +132,7 @@ class  DataCPT {
 
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		$args  = array(
-			'posts_per_page' => 10,
+			'posts_per_page' => get_option( 'posts_per_page' ),
 			'paged'          => $paged,
 			'post_type'      => 'resultado',
 			'orderby'        => 'date',
@@ -144,10 +144,10 @@ class  DataCPT {
 		$results = [];
 		foreach ( $items->posts as $item ) {
 			$results[ $item->ID ] = [
-				'name'  => $item->post_title,
-				'url'   => get_permalink( $item->ID ),
-				'image' => get_the_post_thumbnail( $item->ID, 'thumbnail' ),
-				'score-local'
+				'name'    => $item->post_title,
+				'url'     => get_permalink( $item->ID ),
+				'image'   => get_the_post_thumbnail( $item->ID, 'thumbnail' ),
+				'score'   => dcms_get_info_teams_match( $item->ID ),
 			];
 		}
 
@@ -164,6 +164,12 @@ class  DataCPT {
 		$data['pagination'] = $pagination;
 
 		return $data;
+	}
+
+	// Get final score
+	public function get_final_score() : array{
+		global $post;
+		return dcms_get_info_teams_match( $post->ID );
 	}
 
 }

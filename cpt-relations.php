@@ -44,6 +44,7 @@ final class Loader {
 		define( 'CPT_REL_SHORT_PLAYER_TEAMS', 'jugador_equipos' );
 		define( 'CPT_REL_SHORT_COACH_TEAMS', 'tecnico_equipos' );
 		define( 'CPT_REL_SHORT_RESULTS', 'resultados' );
+		define( 'CPT_REL_SHORT_SCORE', 'marcador_final' );
 	}
 
 	// Load all the files we need

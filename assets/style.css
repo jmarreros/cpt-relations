@@ -121,4 +121,31 @@ html {
 }
 
 
+.container-score > div {
+    display: flex;
+}
+
+.container-score .team-score,
+.container-score .team-name {
+    border: 1px solid grey;
+    padding: 2px 10px;
+}
+
+.container-score .team-name{
+    border-right: none;
+}
+
+.container-score .team-guest .team-score,
+.container-score .team-guest .team-name {
+    border-top: none;
+}
+
+.container-score .team-name {
+    width: 200px;
+}
+
+.container-score .team-score {
+    text-align: center;
+    width: 50px;
+}
 

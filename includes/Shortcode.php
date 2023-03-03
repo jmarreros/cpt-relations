@@ -20,6 +20,7 @@ class Shortcode {
 		add_shortcode( CPT_REL_SHORT_PLAYER_TEAMS, [ $this, 'show_player_teams' ] );
 		add_shortcode( CPT_REL_SHORT_COACH_TEAMS, [ $this, 'show_coach_teams' ] );
 		add_shortcode( CPT_REL_SHORT_RESULTS, [ $this, 'show_results' ] );
+		add_shortcode( CPT_REL_SHORT_SCORE, [ $this, 'show_final_score' ] );
 	}
 
 	// Show list team players
@@ -102,5 +103,15 @@ class Shortcode {
 		return $html_code;
 	}
 
+	public function show_final_score() {
+		$result['score'] = ( new DataCPT() )->get_final_score();
+
+		ob_start();
+		include_once CPT_REL_PATH . '/views/frontend/score-result.php';
+		$html_code = ob_get_contents();
+		ob_end_clean();
+
+		return $html_code;
+	}
 
 }

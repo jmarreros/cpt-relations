@@ -2,25 +2,28 @@
 	<?php
 	/** @var array $results */
 	foreach ( $results as $result ): ?>
-		<li>
-			<div class="team-image">
-				<a href="<?= $result['url'] ?>">
+        <li>
+            <div class="result-image">
+                <a href="<?= $result['url'] ?>">
 					<?= $result['image'] ?>
-				</a>
-			</div>
-			<span class="team-name">
+                </a>
+            </div>
+
+            <?php include ("score-result.php") ?>
+
+            <span class="result-name">
                 <a href="<?= $result['url'] ?>">
 	                <?= $result['name'] ?>
                 </a>
             </span>
-		</li>
+        </li>
 	<?php endforeach; ?>
 </ul>
 
 
 <div>
-    <?php
-    /** @var string $pagination */
-    echo $pagination;
-    ?>
+	<?php
+	/** @var string $pagination */
+	echo $pagination;
+	?>
 </div>
