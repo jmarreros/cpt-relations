@@ -85,3 +85,21 @@
             <i><?= __('Where id is the coach id', 'cpt-relations'); ?></i>
         </p>
     </section>
+
+
+    <section>
+        <h3><?= __('For Results', 'cpt-relations'); ?> </h3>
+        <hr>
+        <p>➜
+			<?= __('List all results with pagination', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_SHORT_RESULTS ?>]
+            </strong>
+        </p>
+        <p>➜
+			<?= __('List score match in specific result page', 'cpt-relations'); ?> :
+            <strong>
+                [<?= CPT_REL_SHORT_SCORE ?>]
+            </strong>
+        </p>
+    </section>
