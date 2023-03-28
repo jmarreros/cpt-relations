@@ -1,16 +1,25 @@
 <?php
 /** @var array $players */
+/** @var string $category_name */
 
-$positions = [
-	'portero',
-	'defensa',
-	'centrocampista',
-	'delantero',
-];
+if ( strpos( strtolower($category_name), 'benjamín' ) !== false) {
+	$positions = [
+		'portero',
+		'cierre',
+		'ala',
+		'pivot',
+	];
+} else {
+	$positions = [
+		'portero',
+		'defensa',
+		'centrocampista',
+		'delantero',
+	];
+}
+
 ?>
-
 <section class="players-container">
-
     <ul class="list-positions">
 		<?php foreach ( $positions as $position ) : ?>
             <li>

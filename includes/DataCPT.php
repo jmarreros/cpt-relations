@@ -167,9 +167,8 @@ class  DataCPT {
 	}
 
 	// Get final score
-	public function get_final_score() : array{
-		global $post;
-		return dcms_get_info_teams_match( $post->ID );
+	public function get_final_score($id_result) : array{
+		return dcms_get_info_teams_match( $id_result );
 	}
 
 }

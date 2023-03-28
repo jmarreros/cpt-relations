@@ -29,6 +29,13 @@ class Shortcode {
 
 		$players = ( new DataCPT )->get_team_players( $id_team );
 
+		// For define positions
+		$category_name = '';
+		$categories    = get_the_category( $id_team );
+		if ( $categories ) {
+			$category_name = $categories[0]->name;
+		}
+
 		ob_start();
 		include_once CPT_REL_PATH . '/views/frontend/list-team-players.php';
 		$html_code = ob_get_contents();
@@ -104,12 +111,12 @@ class Shortcode {
 	}
 
 	public function show_final_score() {
-		$result['score'] = ( new DataCPT() )->get_final_score();
+		$result['score'] = ( new DataCPT() )->get_final_score( get_the_ID() );
 
 		ob_start();
-		include_once CPT_REL_PATH . '/views/frontend/score-result.php';
+		include CPT_REL_PATH . '/views/frontend/score-result.php';
 		$html_code = ob_get_contents();
-		ob_end_clean();
+		ob_get_clean();
 
 		return $html_code;
 	}
