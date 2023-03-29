@@ -120,7 +120,6 @@ html {
     }
 }
 
-
 .list-results {
     display: grid;
     grid-template-columns:repeat(4, 1fr);
@@ -138,53 +137,149 @@ html {
     width: 100%;
 }
 
-.list-results .container-score {
-    margin: 20px 0 30px;
-}
-
-.list-results .result-name{
+.list-results .result-name {
     margin-bottom: 10px;
 }
 
-.container-score > div {
-    display: flex;
-    justify-content: center;
-}
 
-
-.container-score .team-score,
-.container-score .team-name {
-    border: 1px solid grey;
-    padding: 2px 10px;
-}
-
-.container-score .team-name {
-    border-right: none;
-}
-
-.container-score .team-guest .team-score,
-.container-score .team-guest .team-name {
-    border-top: none;
-}
-
-.container-score .team-name {
-    width: 200px;
-}
-
-.container-score .team-score {
-    text-align: center;
-    width: 50px;
-}
-
-.pagination-results{
+.pagination-results {
     text-align: right;
 }
 
-.pagination-results > *{
+.pagination-results > * {
     display: inline-block;
     margin: 8px;
 }
 
-.single .container-score{
-    margin:20px;
+.container-score,
+.container-score > div {
+    display: flex;
 }
+
+
+.container-score,
+.container-score > div {
+    display: flex;
+}
+
+.container-score {
+    justify-content: space-between;
+}
+
+.container-score > div {
+    width: 48%;
+}
+
+
+.container-score > div.team-guest {
+    flex-direction: row-reverse;
+}
+
+.container-score .team-name {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-score .team-score {
+    width: 20%;
+    text-align: center;
+    padding: 20px;
+}
+
+.container-score .team-score span {
+    color: #f8b413;
+    font-weight: bold;
+    background: #181733;
+    display: block;
+    padding: 10px;
+}
+
+.container-score > div span {
+    text-transform: uppercase;
+}
+
+.single  .container-score .team-name{
+    font-size: 36px;
+}
+
+.single  .container-score .team-score{
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+@media (max-width:980px){
+    .single  .container-score .team-name{
+        width: 70%;
+        font-size: 26px;
+    }
+
+    .single .container-score .team-score{
+        width: 30%;
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width:680px){
+    .single .container-score{
+        margin-top: 10px;
+    }
+
+    .single .container-score .team-name{
+        padding: 5px;
+        width: 70%;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .single .container-score .team-score{
+        width: 30%;
+        font-size: 16px;
+        padding: 0;
+    }
+}
+
+
+.fusion-grid-archive .container-score .team-name {
+    font-size: 14px;
+    padding: 5px;
+    width: 70%;
+    display: block;
+    text-align: center;
+}
+
+.fusion-grid-archive .container-score .team-score {
+    width: 30%;
+}
+
+.fusion-grid-archive .container-score .team-score span {
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    padding: 0;
+}
+
+.fusion-grid-archive .container-score .team-name a,
+.fusion-grid-archive .container-score .team-name span {
+    color: white;
+}
+
+.fusion-grid-archive .container-score .team-name a:hover {
+    color: #f8b413;
+}
+
+.fusion-grid-archive .container-score .team-score {
+    padding: 5px;
+}
+
+.fusion-grid-archive .container-score > div {
+    width: 50%;
+}
+
+.fusion-grid-archive .container-score {
+    padding: 0 20px;
+}
+
