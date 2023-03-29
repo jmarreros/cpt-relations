@@ -31,7 +31,7 @@ final class Loader {
 
 	// Define all the constants we need
 	public function define_constants() {
-		define( 'CPT_REL_VERSION', '1.1' );
+		define( 'CPT_REL_VERSION', '1.2' );
 		define( 'CPT_REL_PATH', plugin_dir_path( __FILE__ ) );
 		define( 'CPT_REL_URL', plugin_dir_url( __FILE__ ) );
 		define( 'CPT_REL_BASE_NAME', plugin_basename( __FILE__ ) );
